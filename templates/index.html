@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--main navigation (top) bar-->
+    <nav>
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+    </nav>
+    <!--middle section-->
+    <div id="main">
+        <!--middles section-->
+        <nav id="sidebar">
+            <h4>ROOMS</h4>
+            {% for room in rooms %}
+                <button id="select-room" >{{ room|title }}</button>
+            {% endfor %}
+            <a href="{{ url_for('create') }}"><button> Create new room</button></a>
+
+        </nav>
+        
+        <div id="pre_msg">
+            <!--{% for msg in messages %}
+                <p>{{ msg.msg }} </p>
+                <p>{{ msg.room }}</p>
+
+                {% if msg.room == Room %}
+                    <p>{{ msg.msg }}</p>
+                {% endif %}
+            {% endfor %}-->
+
+        </div>
+        <!--message display section-->  
+        <div id="display_message" >
+           
+        </div>
+        <!--input area   -->
+        <div id="input">
+            <form id="messages" onsubmit="return false" >
+                
+                <input type="text" autocomplete="off" placeholder="TYPE YOUR MESSAGE HERE" id="message_input" >
+                <input type="submit" id="message_submit">
+            </form>
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+    
+    <script> 
+
+        const username = `{{ username }}`; 
+        const pre_msg = `{{ messages }}`
+                
+    </script>
+</body>
+</html>
