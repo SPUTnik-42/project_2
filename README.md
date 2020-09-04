@@ -1,6 +1,6 @@
 # Project 2
 
 created Flask according to requirements
-but failed in remembering the messages 
+CHAT WEBSITE 
 
 Web Programming with Python and JavaScript
